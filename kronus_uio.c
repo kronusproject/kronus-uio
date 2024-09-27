@@ -153,7 +153,6 @@ static int kronus_uio_probe(struct platform_device *pdev)
 		dev_err(&pdev->dev, "failed to map memory\n");
 		return PTR_ERR(priv->base);
 	}
-	priv->base += mem->offs;
 
 	info->handler = kronus_uio_handler;
 	info->irqcontrol = kronus_uio_irqcontrol;
