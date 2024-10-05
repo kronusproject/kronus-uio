@@ -61,18 +61,6 @@ static int kronus_uio_irqcontrol(struct uio_info *info, s32 irq_on)
 	return 0;
 }
 
-#if 0
-static void kronus_uio_reset(struct platform_device *pdev)
-{
-	struct uio_info *info = dev_get_platdata(&pdev->dev);
-	struct kronus_uio_platdata *priv = info->priv;
-
-	iowrite32(KRONUS_CTRL_RESET, priv->base + KRONUS_CTRL_REG);
-	udelay(1);
-	iowrite32(KRONUS_CTRL_IRQ_EN, priv->base + KRONUS_CTRL_REG);
-}
-#endif
-
 static int kronus_uio_probe(struct platform_device *pdev)
 {
 	struct uio_info *info = dev_get_platdata(&pdev->dev);
