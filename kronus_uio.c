@@ -20,12 +20,12 @@
 
 #define DRIVER_NAME "kronus-uio"
 
-#define KRONUS_STAT_REG (0x00)
-#define KRONUS_CTRL_REG (0x10)
+#define KRONUS_STAT_REG 0x00
+#define KRONUS_CTRL_REG 0x10
 
-#define KRONUS_CTRL_IRQ_MASK (0x00)
-#define KRONUS_CTRL_RESET (0x01)
-#define KRONUS_CTRL_ENABLE (0x10)
+#define KRONUS_CTRL_RESET 0x01
+#define KRONUS_CTRL_IRQ_MASK 0x00
+#define KRONUS_CTRL_IRQ_EN 0x10
 
 struct kronus_uio_platdata {
 	struct uio_info *info;
@@ -52,7 +52,7 @@ static int kronus_uio_irqcontrol(struct uio_info *info, s32 irq_on)
 
 	spin_lock_irqsave(&priv->lock, flags);
 	if (irq_on) {
-		iowrite32(KRONUS_CTRL_ENABLE, priv->base + KRONUS_CTRL_REG);
+		iowrite32(KRONUS_CTRL_IRQ_EN, priv->base + KRONUS_CTRL_REG);
 	} else {
 		iowrite32(KRONUS_CTRL_IRQ_MASK, priv->base + KRONUS_CTRL_REG);
 	}
@@ -69,7 +69,7 @@ static void kronus_uio_reset(struct platform_device *pdev)
 
 	iowrite32(KRONUS_CTRL_RESET, priv->base + KRONUS_CTRL_REG);
 	udelay(1);
-	iowrite32(KRONUS_CTRL_ENABLE, priv->base + KRONUS_CTRL_REG);
+	iowrite32(KRONUS_CTRL_IRQ_EN, priv->base + KRONUS_CTRL_REG);
 }
 #endif
 
