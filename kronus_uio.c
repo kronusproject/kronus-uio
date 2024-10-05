@@ -23,9 +23,9 @@
 #define KRONUS_STAT_REG 0x00
 #define KRONUS_CTRL_REG 0x10
 
-#define KRONUS_CTRL_RESET 0x01
-#define KRONUS_CTRL_IRQ_MASK 0x00
-#define KRONUS_CTRL_IRQ_EN 0x10
+#define KRONUS_CTRL_RESET 0x001
+#define KRONUS_CTRL_IRQ_MASK 0x000
+#define KRONUS_CTRL_IRQ_EN 0xFF0
 
 struct kronus_uio_platdata {
 	struct uio_info *info;
