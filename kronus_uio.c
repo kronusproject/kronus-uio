@@ -22,8 +22,6 @@
 
 #define KRONUS_STAT_REG (0x00)
 #define KRONUS_CTRL_REG (0x10)
-#define KRONUS_REQ_REG (0x20)
-#define KRONUS_RSP_REG (0x30)
 
 #define KRONUS_CTRL_IRQ_MASK (0x00)
 #define KRONUS_CTRL_RESET (0x01)
